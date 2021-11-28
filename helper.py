@@ -3,8 +3,27 @@ from torch.utils.data import DataLoader
 from torch import nn
 from torch.optim import optimizer
 from torch.nn.modules import loss
+from torchvision import datasets
+from torchvision import transforms
 
 from datetime import datetime
+
+def get_dataset(type = "type of data", transform = transforms):
+    train_data = datasets.STL10(
+        root = "data",
+        split = "train",
+        download=True,
+        transform = transform
+    )
+
+    test_data = datasets.STL10(
+        root="data",
+        split="test",
+        download=True,
+        transform=transform
+    )
+
+    return train_data, test_data
 
 
 def train(train_loader: DataLoader,
