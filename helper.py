@@ -44,7 +44,7 @@ def train(train_loader: DataLoader,
         y = y.to(device)
 
         # Forward pass
-        y_hat, _ = model(X)
+        y_hat  = model(X)
         loss = criterion(y_hat, y)
         running_loss += loss.item() * X.size(0)
 
